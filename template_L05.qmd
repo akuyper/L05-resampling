@@ -138,6 +138,8 @@ Remember, there should be no factor variables. We left them all as numerical whe
 ::: {.callout-note collapse="true" icon="false"}
 ## Recipe for standard linear, ridge, lasso, and nearest neighbor
 
+The steps described below are not necessarily in the correct order.
+
 - Predict the target variable with all other variables
 - Do not use `id`, `date`, or `zipcode` as predictors (might have to exclude `price` too, depends on how log-transformation was handled)
 - Log-transform `sqft_living, sqft_lot, sqft_above,  sqft_living15, sqft_lot15`
@@ -159,6 +161,8 @@ YOUR SOLUTION HERE --- provide display code for graders
 ## Recipe for random forest
 
 Trees automatically detect non-linear relationships so we don't need the natural spline step (it has been removed). Some of the other steps are not needed (such as Log-transforms, centering, scaling), but can be done since they will not meaningfully change anything. The natural spline step performs a basis expansion, which turns one column into 5 --- which is what causes the issue for the random forest algorithm.
+
+The steps described below are not necessarily in the correct order.
 
 - Predict the target variable with all other variables
 - Do not use `id`, `date`, or `zipcode` as predictors (might have to exclude `price` too, depends on how log-transformation was handled)
@@ -262,9 +266,9 @@ YOUR SOLUTION HERE
 
 When assessing a best/winning/final model we are not constrained to the evaluation metric used to select it (meaning used to compare it to others). The selection/competition process is over and we are interested in exploring the final model with whatever tools we have.
 
-- Calculate the RMSE for the final model on the original scale of price (not $log_{10}$ price as in Task 9)? This is useful because the interpretation of the RMSE is now on the original scale of price. Provide an interpretation of this RMSE.
+- Calculate the RMSE for the final model on the original scale of price (not $log_{10}$ price as in Task 9). This is useful because the interpretation of the RMSE is now on the original scale of `price`. Provide an interpretation of this RMSE.
 
-- Assess it using $R^2$, Provide an interpretation.
+- Calculate $R^2$ for the final model on the original scale. Provide an interpretation.
 
 - Calculate the proportion/percentage of the predicted prices that are within 10% of the original price on the testing set? Is this value surprising or not surprising to you? Explain.
 
